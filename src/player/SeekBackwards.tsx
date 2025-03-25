@@ -88,7 +88,7 @@ export const SeekBackwards = () => {
       }}
       onMouseOver={moveToRandomPosition}
     >
-      <MediaSeekBackwardButton seekOffset={3}>
+      <MediaSeekBackwardButton seekOffset={3} mediaController="player">
         <span slot="icon">
           <SwallowSVG isFlying={isFlying} />
         </span>

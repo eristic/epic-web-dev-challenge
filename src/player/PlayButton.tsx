@@ -91,7 +91,7 @@ export const PlayButton = () => {
       }}
       onMouseOver={moveToRandomPosition}
     >
-      <MediaPlayButton>
+      <MediaPlayButton mediaController="player">
         <span slot="play">
           <HummingbirdSVG isFlying={isFlying} isPaused={false} />
         </span>
