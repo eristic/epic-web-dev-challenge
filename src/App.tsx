@@ -1,22 +1,17 @@
-import MuxPlayer from "@mux/mux-player-react";
+import MuxVideo from "@mux/mux-video-react";
+import { MediaController, MediaPlayButton, MediaSeekBackwardButton, MediaSeekForwardButton, MediaTimeDisplay } from "media-chrome/react";
 
 function App() {
   return (
-    <div className="w-full h-full grid grid-cols-2">
-      <div>
-        <p>Controls here</p>
-      </div>
-      <div>
-      <MuxPlayer
-          playbackId="C00OH5HO3jiNjENMkT1lqxoaT4hlAmQhV5JiR010101uX9g"
-          accentColor="blue"
-          metadata={{
-            video_id: "video-id-54321",
-            video_title: "Birds, birds, burds",
-            viewer_user_id: "user-id-007",
-          }}
-        />
-      </div>
+    <div className="w-full h-screen flex justify-center items-center">
+        <MediaController>
+          <MuxVideo playbackId="C00OH5HO3jiNjENMkT1lqxoaT4hlAmQhV5JiR010101uX9g" slot="media" muted />
+          
+          <MediaPlayButton />
+          <MediaSeekBackwardButton />
+          <MediaSeekForwardButton />
+          <MediaTimeDisplay />
+        </MediaController>
     </div>
   );
 }
