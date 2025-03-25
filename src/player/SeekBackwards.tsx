@@ -3,7 +3,7 @@ import { FLIGHT_DURATION, PICTURE_DURATION } from "./constants"
 import { MediaSeekBackwardButton } from "media-chrome/react"
 
 
-const PeregrineFalconSVG = ({ isFlying }: { isFlying: boolean }) => (
+const SwallowSVG = ({ isFlying }: { isFlying: boolean }) => (
   <svg
     width="80"
     height="80"
@@ -14,8 +14,8 @@ const PeregrineFalconSVG = ({ isFlying }: { isFlying: boolean }) => (
   >
     {/* Body */}
     <path
-      d="M40 50c14-4 24-14 28-22 4-8 4-16 0-20s-18-4-28 0c-10 4-16 16-16 26s6 16 16 16z"
-      fill="#2F2F2F" // Darker color for falcon
+      d="M40 50c-10-3-18-10-22-16-4-6-4-12 0-16s14-4 22 0c8 4 12 12 12 20s-4 12-12 12z"
+      fill="#1E90FF" // Bright blue color for swallow body
       className="drop-shadow-lg" // Add shadow for 3D effect
     />
     {/* Wing */}
@@ -23,23 +23,27 @@ const PeregrineFalconSVG = ({ isFlying }: { isFlying: boolean }) => (
       className={`transform-origin-center ${
         isFlying ? "animate-wing-flap" : ""
       }`} // Continuous wing flap animation
-      d="M34 40c-12-4-20-14-22-22-2-8 0-14 4-16s14 0 22 10c4 8 4 16 2 20s-4 8-6 8z"
-      fill="#1A1A1A" // Darker wing color
+      d="M46 40c10-3 18-10 20-16 2-6 0-12-4-14s-12 0-20 8c-4 6-4 12-2 16s4 6 6 6z"
+      fill="#1E90FF" // Bright blue color for swallow wings
+    />
+    {/* Tail */}
+    <path
+      d="M40 50c2 4 6 8 10 10s8-2 10-6-2-8-6-10-8-2-10 0z"
+      fill="#1E90FF" // Bright blue color for swallow tail
     />
     {/* Beak */}
     <path
-      d="M60 32c2-2 4-2 6 0s2 4 0 6-4 2-6 0-2-4 0-6z"
-      fill="#FFD700" // Golden beak
+      d="M20 32c-2-2-4-2-6 0s-2 4 0 6 4 2 6 0 2-4 0-6z"
+      fill="#FF4500" // Reddish-orange beak
     />
-    {/* Skip Forward 10s symbol */}
+    {/* Skip Backwards 10s symbol */}
     <path
-      d="M36 36l8 4-8 4z M44 36l8 4-8 4z" // Double right arrow shape
+      d="M44 36l-8 4 8 4z M36 36l-8 4 8 4z" // Double left arrow shape
       fill="white"
       className="drop-shadow-md"
     />
   </svg>
 )
-
 
 export const SeekBackwards = () => {
   const [position, setPosition] = useState({ x: 200, y: 100 })
@@ -86,7 +90,7 @@ export const SeekBackwards = () => {
     >
       <MediaSeekBackwardButton>
         <span slot="icon">
-          <PeregrineFalconSVG isFlying={isFlying} />
+          <SwallowSVG isFlying={isFlying} />
         </span>
       </MediaSeekBackwardButton>
     </div>
