@@ -1,9 +1,8 @@
-import { MediaControlBar, MediaTimeRange } from "media-chrome/react";
 import { useEffect,useState } from "react";
-
+import tree from '../assets/tree.svg';
 
 export const ControlTree = ({videoRef}:any) => {
-    const [currentImage, setCurrentImage] = useState<string>("image1.jpg");
+    const [height, setHeight] = useState<number>(25);
 
     useEffect(() => {
         const videoElement = videoRef.current;
@@ -11,16 +10,7 @@ export const ControlTree = ({videoRef}:any) => {
 
         const handleTimeUpdate = () => {
             const currentTime = videoElement.currentTime;
-
-            if (currentTime >= 0 && currentTime < 5) {
-                setCurrentImage("image1.jpg");
-            } else if (currentTime >= 5 && currentTime < 10) {
-                setCurrentImage("image2.jpg");
-            } else if (currentTime >= 10 && currentTime < 15) {
-                setCurrentImage("image3.jpg");
-            } else if (currentTime >= 15 && currentTime <= 20) {
-                setCurrentImage("image4.jpg");
-            }
+            setHeight((currentTime / 23) * 100);
         };
 
         videoElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -31,12 +21,19 @@ export const ControlTree = ({videoRef}:any) => {
     }, []);
 
     return (
-        <div className="control-tree">
-            <video ref={videoRef} src="your-video-file.mp4" controls />
-            <img src={currentImage} alt="Dynamic content" />
-            <MediaControlBar>
-                <MediaTimeRange />
-            </MediaControlBar>
+        <div className="relative left-[25%] bottom-[0px] h-screen w-screen z-100">
+            <div className="absolute" style={{
+                bottom: `${(height)}%`,
+                transform: 'rotate(0deg)',
+                position: 'relative',
+                backgroundImage: `url(${tree})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'bottom',
+                height: `${height}%`,
+                maxWidth: '100%',
+            }}
+            />
         </div>
     );
 };

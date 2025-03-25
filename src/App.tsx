@@ -10,8 +10,6 @@ import './app.css';
 import './styles/tree.css';
 import clouds from './assets/cloud.svg';
 import bush from './assets/bush.svg';
-
-import tree from './assets/tree.svg';
 import { useRef } from "react";
 
 function App() {
@@ -24,14 +22,13 @@ function App() {
             className="content-center w-[600px] h-[400px]"
           />
           <TimeDisplay />
-          <ControlTree videoRef={videoRef}/>
         </MediaController>
         <PlayButton />
         <SeekBackwards />
         <SeekForwards />
         
         <div className="fixed bottom-0 w-full h-16 bg-brown-500">
-          <img className="absolute left-[10%] bottom-[7px] w-[100px] h-[200px]" src={tree} alt="tree" />
+          <ControlTree videoRef={videoRef}/>
           <img className="absolute left-[10%] bottom-0 w-10 h-10" src={bush} alt="plant1" />
           <img className="absolute left-[20%] bottom-30 w-24 h-24" src={bush} alt="plant1" />
           <img className="absolute left-[40%] bottom-0 w-20 h-20" src={bush} alt="plant2" />
