@@ -77,14 +77,14 @@ export const SeekForwards = () => {
 
   return (
     <div
-      className="fixed cursor-pointer transition-all duration-300 ease-in-out"
+      className="z-50 fixed cursor-pointer transition-all duration-300 ease-in-out"
       style={{
         left: position.x,
         top: position.y,
       }}
       onMouseOver={moveToRandomPosition}
     >
-      <MediaSeekForwardButton>
+      <MediaSeekForwardButton seekOffset={3}>
         <span slot="icon">
           <PeregrineFalconSVG isFlying={isFlying} />
         </span>

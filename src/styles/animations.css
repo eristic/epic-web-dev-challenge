@@ -17,6 +17,11 @@
 }
 
 
-media-play-button, media-seek-backward-button, media-seek-forward-button {
+media-play-button, media-seek-backward-button, media-seek-forward-button, media-time-display {
   background-color: transparent;
+  z-index: 1000;
+}
+
+media-time-display {
+  color: #000;
 }

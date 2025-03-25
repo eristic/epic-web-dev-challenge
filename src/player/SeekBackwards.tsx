@@ -81,14 +81,14 @@ export const SeekBackwards = () => {
 
   return (
     <div
-      className="fixed cursor-pointer transition-all duration-300 ease-in-out"
+      className="z-10 fixed cursor-pointer transition-all duration-300 ease-in-out"
       style={{
         left: position.x,
         top: position.y,
       }}
       onMouseOver={moveToRandomPosition}
     >
-      <MediaSeekBackwardButton>
+      <MediaSeekBackwardButton seekOffset={3}>
         <span slot="icon">
           <SwallowSVG isFlying={isFlying} />
         </span>

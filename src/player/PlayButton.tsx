@@ -84,7 +84,7 @@ export const PlayButton = () => {
 
   return (
     <div
-      className="fixed cursor-pointer transition-all duration-300 ease-in-out"
+      className="z-50 fixed cursor-pointer transition-all duration-300 ease-in-out"
       style={{
         left: position.x,
         top: position.y,
