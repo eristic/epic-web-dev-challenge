@@ -4,21 +4,27 @@ import { PlayButton } from "./player/PlayButton";
 import { SeekBackwards } from "./player/SeekBackwards";
 import { SeekForwards } from "./player/SeekForwards";
 import { TimeDisplay } from "./player/TimeDisplay";
+import { ControlTree } from "./player/ControlTree";
 import './styles/animations.css';
 import './app.css';
+import './styles/tree.css';
 import clouds from './assets/cloud.svg';
 import bush from './assets/bush.svg';
+
 import tree from './assets/tree.svg';
+import { useRef } from "react";
 
 function App() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   return (
     <div className="w-full h-screen flex justify-center items-center bg-blue-200 relative"> 
         <img className="clouds" src={clouds} alt="clouds" />
         <MediaController id="player" className="absolute inset-0 flex flex-col justify-center items-center bg-blue-200">
-          <MuxVideo playbackId="C00OH5HO3jiNjENMkT1lqxoaT4hlAmQhV5JiR010101uX9g" slot="media" muted loop
+          <MuxVideo ref={ videoRef } playbackId="C00OH5HO3jiNjENMkT1lqxoaT4hlAmQhV5JiR010101uX9g" slot="media" muted loop
             className="content-center w-[600px] h-[400px]"
           />
           <TimeDisplay />
+          <ControlTree videoRef={videoRef}/>
         </MediaController>
         <PlayButton />
         <SeekBackwards />
