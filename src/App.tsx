@@ -5,6 +5,7 @@ import { PlayButton } from "./player/PlayButton";
 import { SeekBackwards } from "./player/SeekBackwards";
 import { SeekForwards } from "./player/SeekForwards";
 import { TimeDisplay } from "./player/TimeDisplay";
+import './styles/animations.css';
 
 function App() {
   const videoRef = useRef<HTMLVideoElement>(null);

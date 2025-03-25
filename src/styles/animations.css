@@ -1,0 +1,20 @@
+@keyframes wing-flap {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wing {
+  animation: wing-flap 0.2s ease-in-out infinite;
+} 
+
+
+media-play-button {
+  background-color: transparent;
+}
